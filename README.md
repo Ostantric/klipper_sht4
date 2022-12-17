@@ -2,7 +2,8 @@
 Works with  SHT4x series humidity and temperature sensors.
 ### TODO
 * Add mode change function
-# ADD THIS TO "temperature_sensors.cfg"
+# Configure  "temperature_sensors.cfg"
+add the module name
 ``` bash 
 [sht4]
 ```
