@@ -1,0 +1,55 @@
+"""
+# 125C MAX
+# 75ma max with heater enabled
+# %10 duty cycle for onboard heater
+
+# DEFAULT IS HIGH PRECISION FOR THIS KLIPPER DRIVER, NO MODE CHANGES
+check section 4.9 Heater operation for onboard heater details
+
+# commands from 4.5
+# INCLUDING activating ONBOARD HEATER
+Response length
+incl. CRC (bytes)
+Description
+[return values]
+0xFD 6 measure T & RH with high precision (high repeatability)
+[2 * 8-bit T-data; 8-bit CRC; 2 * 8-bit RH-data; 8-bit CRC]
+0xF6 6 measure T & RH with medium precision (medium repeatability)
+[2 * 8-bit T-data; 8-bit CRC; 2 * 8-bit RH-data; 8-bit CRC]
+0xE0 6 measure T & RH with lowest precision (low repeatability)
+[2 * 8-bit T-data; 8-bit CRC; 2 * 8-bit RH-data; 8-bit CRC]
+0x89 6 read serial number
+[2 * 8-bit data; 8-bit CRC; 2 * 8-bit data; 8-bit CRC]
+0x94 -
+soft reset
+[ACK]
+0x39 6
+activate heater with 200mW for 1s, including a high precision
+measurement just before deactivation
+[2 * 8-bit T-data; 8-bit CRC; 2 * 8-bit RH-data; 8-bit CRC]
+0x32 6
+activate heater with 200mW for 0.1s including a high precision
+measurement just before deactivation
+[2 * 8-bit T-data; 8-bit CRC; 2 * 8-bit RH-data; 8-bit CRC]
+0x2F 6
+activate heater with 110mW for 1s including a high precision
+measurement just before deactivation
+[2 * 8-bit T-data; 8-bit CRC; 2 * 8-bit RH-data; 8-bit CRC]
+0x24 6
+activate heater with 110mW for 0.1s including a high precision
+measurement just before deactivation
+[2 * 8-bit T-data; 8-bit CRC; 2 * 8-bit RH-data; 8-bit CRC]
+0x1E 6
+activate heater with 20mW for 1s including a high precision
+measurement just before deactivation
+[2 * 8-bit T-data; 8-bit CRC; 2 * 8-bit RH-data; 8-bit CRC]
+0x15 6
+activate heater with 20mW for 0.1s including a high precision
+measurement just before deactivation
+[2 * 8-bit T-data; 8-bit CRC; 2 * 8-bit RH-data; 8-bit CRC]
+
+# calculation from 4.6
+RH = (−6 + 125 x srh/ 2 16 − 1 ) RH ( 1 )
+T= (−45 + 175 x st 2 16 − 1 ) C ( 2 )
+T = (−49 + 315 x st 2 16 − 1 ) F ( 3 )
+"""
